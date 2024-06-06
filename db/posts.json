@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "title": "Baju",
+        "body": "Baju kaos"
+    },
+    {
+        "id": "2",
+        "title": "Celana",
+        "body": "Celana Jeans"
+    },
+    {
+        "id": "3",
+        "title": "Baju",
+        "body": "Baju Gamis"
+    },
+    {
+        "id": "4",
+        "title": "Kemeja",
+        "body": "Kemeja Pendek"
+    }
+]
