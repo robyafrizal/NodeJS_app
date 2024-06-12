@@ -1,17 +1,23 @@
 const express = require("express");
-//app adl instance object dari express yang mengatur segala sesuatu terkait HTTP(baik req / res)
-const app = express();
+const app = express(); //app adl instance object dari express yang mengatur segala sesuatu terkait HTTP(baik req / res)
 const bodyParser = require("body-parser");
 let posts = require("./db/posts.json");
-const port = 3301;
+const port = 3000;
 
 //app.Method() termasuk get,post,update,delete, berisi argumen path dan callback
 //digunakan untuk menampilkan sebuah handler pada suatu endpoint tertentu
 //endpoint adl ujung dari suatu network digunakan untuk menghandle request secara spesifik
 //path adalah endpoint yang dipakai buat routing suatu request
 
+app.use(express.json()); //Agar syntax json bisa dijalankan
+
+console.log("------------------contoh_sederhana----------------------");
 app.get("/", function (req, res) {
-  res.send("Hello from get");
+  res.status(200).send({
+    header: req.headers["auth-token"],
+    body: req.body,
+    message: "Hello from get",
+  });
   //method: send, status, JSON, sendFile, render
 });
 app.get("/product", (req, res) => {
@@ -24,6 +30,8 @@ app.get("/order", (req, res) => {
   ]);
 });
 
+console.log("-----------------Run_di_Postman-----------------------");
+//Biar bisa memparsing/mengirimkan file json
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 
